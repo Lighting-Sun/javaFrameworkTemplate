@@ -35,6 +35,6 @@ public class CommonConditions {
     public void tearDown() throws InterruptedException {
         // This thread sleep is added so the reviewer can see if the values are filled correctly before the driver gets closed
         Thread.sleep(5000);
-        DriverSingleton.closeDriver();
+        //DriverSingleton.closeDriver();
     }
 }

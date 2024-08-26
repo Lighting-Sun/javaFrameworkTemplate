@@ -1,11 +1,11 @@
-package org.example;
+package org.example.test;
 
+import org.example.utilities.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.example.driver.DriverSingleton;
-import org.example.utilities.TestListener;
 
 /**
  * Class containing common conditions for setting up and tearing down the WebDriver instance.

@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Singleton class to manage the WebDriver instance.
+ *
  * @author Harvey C
  */
 public class DriverSingleton {
@@ -16,7 +17,8 @@ public class DriverSingleton {
     /**
      * Private constructor to prevent instantiation.
      */
-    private DriverSingleton() {}
+    private DriverSingleton() {
+    }
 
     /**
      * Gets the single instance of WebDriver.
@@ -37,6 +39,10 @@ public class DriverSingleton {
                     driver = new ChromeDriver();
                     break;
                 }
+            }
+
+            if (System.getProperty("cookies").equalsIgnoreCase("Y")) {
+                driver.manage().deleteAllCookies();
             }
             driver.manage().window().maximize();
         }

@@ -46,7 +46,7 @@ public class CommonPageInteractions {
     public CommonPageInteractions(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(this.driver);
-        this.wait = new WebDriverWait(this.driver, Duration.ofMillis(10000));
+        this.wait = new WebDriverWait(this.driver, Duration.ofMillis(15000));
     }
 
     /**
@@ -141,5 +141,19 @@ public class CommonPageInteractions {
             logger.error("Wait for presence of element timed out. locator used: " + locator);
             return false;
         }
+    }
+
+    public void switchToIframe(By locator){
+
+        WebElement iFrame = getWebElement(locator);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));
+        clickOnElement(iFrame);
+        actions.scrollToElement(iFrame);
+        wait.until(ExpectedConditions.elementToBeClickable(iFrame));
+        driver.switchTo().frame(iFrame);
+    }
+
+    public void switchBackToMainPage(){
+        driver.switchTo().defaultContent();
     }
 }

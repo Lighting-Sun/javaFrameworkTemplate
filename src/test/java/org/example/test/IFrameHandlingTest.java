@@ -2,6 +2,7 @@ package org.example.test;
 
 import org.example.page_object_model.GoogleHomePage;
 import org.example.page_object_model.GoogleResultsPage;
+import org.example.page_object_model.SdetunicornsIframeSamplePage;
 import org.testng.annotations.Test;
 import static org.example.constants.Constants.*;
 
@@ -18,7 +19,9 @@ public class IFrameHandlingTest extends CommonConditions{
         GoogleResultsPage googleResultsPage = new GoogleResultsPage(driver);
         googleResultsPage.clickOnSearchResult(IFRAME_SAMPLE_SEARCH_RESULT);
 
-
+        SdetunicornsIframeSamplePage sdetunicornsIframeSamplePage = new SdetunicornsIframeSamplePage(driver);
+        sdetunicornsIframeSamplePage.switchToAdvancedIframe();
+        sdetunicornsIframeSamplePage.iframePage.AcceptAllCookiesAndCloseModal();
     }
 
 }
